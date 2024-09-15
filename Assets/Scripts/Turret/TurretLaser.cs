@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Laser : MonoBehaviour
+public class TurretLaser : MonoBehaviour
 {
     [SerializeField] private Transform _laserOriginPoint;
     [SerializeField] private float _maxDistance = 10.0f;
@@ -29,11 +29,14 @@ public class Laser : MonoBehaviour
     {
         _laser = GetComponent<LineRenderer>();
         _enabled = false;
+        _laser.enabled = _enabled;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        _laser.enabled = _enabled;
+
         if (_enabled)
         {
             _ray = new Ray(_laserOriginPoint.position, _laserOriginPoint.forward);
@@ -55,7 +58,7 @@ public class Laser : MonoBehaviour
                 _laser.SetPosition(1, _laserOriginPoint.position + _laserOriginPoint.forward * _maxDistance);
             }
         }
-        
+
     }
 
     //private void OnDrawGizmos()

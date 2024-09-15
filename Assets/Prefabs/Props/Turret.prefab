@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5775810634095809089}
   - component: {fileID: 1046223749697268722}
+  - component: {fileID: 5031863079560336706}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -77,7 +78,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3098a75bd48f74c9ad95a8e366d42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackRange: 10
+  _turretMovement: {fileID: 5031863079560336706}
+  _laser: {fileID: 524048543366160714}
+  _attackRange: 15
+--- !u!114 &5031863079560336706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6587672820954958075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb663eb53227e14b8a4dd3f412473c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _rotationSpeed: 1
 --- !u!1 &7475912326584156362
 GameObject:
@@ -92,7 +107,7 @@ GameObject:
   - component: {fileID: 3851477797047975306}
   - component: {fileID: 6897948366041422970}
   - component: {fileID: 5694453109724110187}
-  - component: {fileID: 8661145050323694307}
+  - component: {fileID: 524048543366160714}
   m_Layer: 0
   m_Name: Laser Turret
   m_TagString: Untagged
@@ -209,7 +224,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: bd70145708a27471bbf6560b41ba5003, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -253,8 +268,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -292,7 +307,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &8661145050323694307
+--- !u!114 &524048543366160714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -301,7 +316,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7475912326584156362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a647ddf90681b1548b468ef36b998209, type: 3}
+  m_Script: {fileID: 11500000, guid: d0d9cda2ff22c9a4e85af2af550099bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _laserOriginPoint: {fileID: 512755849607994995}
