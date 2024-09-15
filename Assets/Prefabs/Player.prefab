@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 278117170334465864}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,8 +243,8 @@ MonoBehaviour:
   _cameraTransform: {fileID: 1751546598990567372}
   _inputType: 0
   _bulletSpawnPoint: {fileID: 7937915256213423482}
-  _shootForce: 20
-  _playerMovement: {fileID: 7403170672981175694}
+  _bulletShootForce: 30
+  _rocketShootForce: 60
 --- !u!114 &6048681076158000649
 MonoBehaviour:
   m_ObjectHideFlags: 0
