@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5421024470352943431}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1625064656390155590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5657689333212598702}
+  m_Layer: 0
+  m_Name: Pick Up Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5657689333212598702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625064656390155590}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.896}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5421024470352943431}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848767210448556779
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,8 +77,11 @@ GameObject:
   - component: {fileID: 4735370099711733496}
   - component: {fileID: 420294328251831282}
   - component: {fileID: 7403170672981175694}
+  - component: {fileID: 5481650477780005778}
   - component: {fileID: 3078546087095979714}
   - component: {fileID: 6028878718135016432}
+  - component: {fileID: -27041637490836851}
+  - component: {fileID: 8744566483453851868}
   - component: {fileID: 6048681076158000649}
   - component: {fileID: 278117170334465864}
   m_Layer: 0
@@ -74,6 +108,7 @@ Transform:
   - {fileID: 2745722151561513738}
   - {fileID: 7357773477977800613}
   - {fileID: 7937915256213423482}
+  - {fileID: 5657689333212598702}
   - {fileID: 3307278124501874109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -209,6 +244,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _groundCheckDistance: 1
+--- !u!114 &5481650477780005778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848767210448556779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ad2712c9326f841938cbeeb3d444ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _health: 0
 --- !u!114 &3078546087095979714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +294,41 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 7937915256213423482}
   _bulletShootForce: 30
   _rocketShootForce: 60
+--- !u!114 &-27041637490836851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848767210448556779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ae455e17e9ceb418248014eaf2a1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 3180589976247653325}
+  _pickUpPoint: {fileID: 5657689333212598702}
+  _pickUpMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _pickUpDistance: 2
+--- !u!114 &8744566483453851868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848767210448556779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d64643bb3a8b3c4994b817de6fbbb60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 3180589976247653325}
+  _interationMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _interactionDistance: 2
 --- !u!114 &6048681076158000649
 MonoBehaviour:
   m_ObjectHideFlags: 0

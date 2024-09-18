@@ -6,8 +6,9 @@ using UnityEngine.Events;
 public class TurretLaser : MonoBehaviour
 {
     [SerializeField] private Transform _laserOriginPoint;
-    [SerializeField] private float _maxDistance = 10.0f;
-    [SerializeField] private UnityEvent OnHitTarget;
+    [SerializeField] private float _maxDistance = 20.0f;
+    [SerializeField] private float _laserDamage = 10.0f;
+    [SerializeField] private PlayerHealth _playerHealth;
 
     private LineRenderer _laser;
     private RaycastHit _rayCastHit;
@@ -48,8 +49,8 @@ public class TurretLaser : MonoBehaviour
 
                 if (_rayCastHit.collider.CompareTag("Player"))
                 {
-                    Debug.Log("Player is hit.");
-                    OnHitTarget?.Invoke();
+                    // Deal damage to player
+                    _playerHealth.DeductHealth(_laserDamage * Time.deltaTime);
                 }
             }
             else

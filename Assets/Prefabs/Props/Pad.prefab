@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4028723771157208326}
   m_Layer: 0
-  m_Name: Button_Pad
+  m_Name: Pad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
