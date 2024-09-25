@@ -15,15 +15,15 @@ public class ShootInteractor : Interactor
 
 
     [SerializeField] private Transform _cameraTransform;
-    [SerializeField] private InputType _inputType;
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private float _bulletShootForce = 20.0f;
     [SerializeField] private float _rocketShootForce = 40.0f;
 
     private float _finalShootVelocity;
+    private WeaponType _weaponType;
     private IShootStrategy _currentShootStrategy;
 
-    public enum InputType
+    public enum WeaponType
     {
         Primary,
         Secondary
@@ -34,19 +34,24 @@ public class ShootInteractor : Interactor
         if (_currentShootStrategy == null)
         {
             _currentShootStrategy = new BulletShootStrategy(this, _bulletSpawnPoint, _bulletShootForce, _cameraTransform);
+            _weaponType = WeaponType.Primary;
         }
 
-        if (PlayerInput.instance.Weapon1Pressed)
+        if (PlayerInput.instance.ChangeWeaponPressed)
         {
-            _currentShootStrategy = new BulletShootStrategy(this, _bulletSpawnPoint, _bulletShootForce, _cameraTransform);
+            if (_weaponType == WeaponType.Primary)
+            {
+                _currentShootStrategy = new RocketShootStrategy(this, _bulletSpawnPoint, _rocketShootForce, _cameraTransform);
+                _weaponType = WeaponType.Secondary;
+            }
+            else
+            {
+                _currentShootStrategy = new BulletShootStrategy(this, _bulletSpawnPoint, _bulletShootForce, _cameraTransform);
+                _weaponType = WeaponType.Primary;
+            }
         }
 
-        if (PlayerInput.instance.Weapon2Pressed)
-        {
-            _currentShootStrategy = new RocketShootStrategy(this, _bulletSpawnPoint, _rocketShootForce, _cameraTransform);
-        }
-
-        if (_inputType == InputType.Primary && PlayerInput.instance.PrimaryShootPressed)
+        if (PlayerInput.instance.ShootPressed)
         {
             _currentShootStrategy.Shoot();
         }

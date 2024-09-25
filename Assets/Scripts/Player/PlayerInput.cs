@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
+// Trying new input system: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/manual/Workflow-ActionsAsset.html
+// This class is to be replaced with Player Input from the new input system.
 
 // Execute this before all other scripts
 [DefaultExecutionOrder(-100)]
@@ -8,29 +12,88 @@ public class PlayerInput : MonoBehaviour // Singleton
 {
     public static PlayerInput instance;
 
-    private bool _clear;
+    [SerializeField] private InputActionAsset _actions;
 
-    public float Horizontal { get; private set; }
+    private InputAction _moveAction;
+    private InputAction _rotateAction;
+    private InputAction _jumpAction;
+    private InputAction _lookAction;
+    private InputAction _shootAction;
+    private InputAction _sprintAction;
+    private InputAction _interactAction;
+    private InputAction _changeWeaponAction;
 
-    public float Vertical { get; private set; }
+    public float Vertical
+    {
+        get
+        {
+            return _moveAction.ReadValue<Vector2>().y;
+        }
+    }
 
-    public float MouseX { get; private set; }
+    public Vector2 MoveInput
+    {
+        get
+        {
+            return _moveAction.ReadValue<Vector2>();
+        }
+    }
 
-    public float MouseY { get; private set; }
+    public float RotateInput
+    {
+        get
+        {
+            return _rotateAction.ReadValue<float>();
+        }
+    }
 
-    public bool SprintHeld { get; private set; }
+    public float LookInput
+    {
+        get
+        {
+            return _lookAction.ReadValue<float>();
+        }
+    }
 
-    public bool JumpPressed { get; private set; }
+    public bool SprintHeld
+    {
+        get
+        {
+            return _sprintAction.inProgress;
+        }
+    }
 
-    public bool InteractPressed { get; private set; }
+    public bool JumpPressed
+    {
+        get
+        {
+            return _jumpAction.triggered;
+        }
+    }
 
-    public bool PrimaryShootPressed { get; private set; }
+    public bool InteractPressed
+    {
+        get
+        {
+            return _interactAction.triggered;
+        }
+    }
 
-    public bool SecondaryShootPressed { get; private set; }
+    public bool ShootPressed
+    {
+        get
+        {
+            return _shootAction.triggered;
+        }
+    }
 
-    public bool Weapon1Pressed { get; private set; }
-
-    public bool Weapon2Pressed { get; private set; }
+    public bool ChangeWeaponPressed
+    {
+        get
+        {
+            return _changeWeaponAction.triggered;
+        }
+    }
 
     public bool CommandPressed { get; private set; }
 
@@ -40,56 +103,24 @@ public class PlayerInput : MonoBehaviour // Singleton
         {
             instance = this;
         }
+
+        _moveAction = _actions.FindActionMap("PlayerActions").FindAction("Move");
+        _rotateAction = _actions.FindActionMap("PlayerActions").FindAction("Rotate");
+        _jumpAction = _actions.FindActionMap("PlayerActions").FindAction("Jump");
+        _lookAction = _actions.FindActionMap("PlayerActions").FindAction("Look");
+        _shootAction = _actions.FindActionMap("PlayerActions").FindAction("Shoot");
+        _sprintAction = _actions.FindActionMap("PlayerActions").FindAction("Sprint");
+        _interactAction = _actions.FindActionMap("PlayerActions").FindAction("Interact");
+        _changeWeaponAction = _actions.FindActionMap("PlayerActions").FindAction("ChangeWeapon");
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void OnEnable()
     {
-        ProcessInputs();
+        _actions.FindActionMap("PlayerActions").Enable();
     }
 
-    private void FixedUpdate()
+    private void OnDisable()
     {
-        _clear = true;
-        ClearInputs();
-    }
-
-    private void ProcessInputs()
-    {
-        Horizontal = Input.GetAxis("Horizontal");
-        Vertical = Input.GetAxis("Vertical");
-        MouseX = Input.GetAxis("Mouse X");
-        MouseY = Input.GetAxis("Mouse Y");
-
-        SprintHeld = Input.GetButton("Fire3");
-        JumpPressed = Input.GetButtonDown("Jump");
-        InteractPressed = Input.GetKeyDown(KeyCode.F);
-        PrimaryShootPressed = Input.GetButtonDown("Fire1");
-        SecondaryShootPressed = Input.GetButtonDown("Fire2");
-
-        Weapon1Pressed = Input.GetKeyDown(KeyCode.Alpha1);
-        Weapon2Pressed = Input.GetKeyDown(KeyCode.Alpha2);
-
-        CommandPressed = Input.GetKeyDown(KeyCode.G);
-    }
-
-    private void ClearInputs()
-    {
-        if (!_clear)
-            return;
-
-        Horizontal = 0;
-        Vertical = 0;
-        MouseX = 0;
-        MouseY = 0;
-
-        SprintHeld = false;
-        JumpPressed = false;
-        InteractPressed = false;
-        PrimaryShootPressed = false;
-        SecondaryShootPressed = false;
-        Weapon1Pressed = false;
-        Weapon2Pressed = false;
-        CommandPressed = false;
+        _actions.FindActionMap("PlayerActions").Disable();
     }
 }

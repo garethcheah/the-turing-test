@@ -78,12 +78,13 @@ GameObject:
   - component: {fileID: 420294328251831282}
   - component: {fileID: 7403170672981175694}
   - component: {fileID: 5481650477780005778}
-  - component: {fileID: 3078546087095979714}
   - component: {fileID: 6028878718135016432}
   - component: {fileID: -27041637490836851}
   - component: {fileID: 8744566483453851868}
+  - component: {fileID: 8878957907372451854}
   - component: {fileID: 6048681076158000649}
   - component: {fileID: 278117170334465864}
+  - component: {fileID: 833486391366921859}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -223,6 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d4c8456e606b94eb2692ddeb3bdd5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actions: {fileID: -944628639613478452, guid: c061d77a74a9be24a8188676815a3540,
+    type: 3}
 --- !u!114 &7403170672981175694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,12 +241,12 @@ MonoBehaviour:
   _playerSpeed: 2.5
   _sprintMultiplier: 4
   _gravity: -9.81
-  _turnSpeed: 200
+  _turnSpeed: 50
   _groundCheck: {fileID: 3307278124501874109}
   _groundMask:
     serializedVersion: 2
     m_Bits: 8
-  _groundCheckDistance: 1
+  _groundCheckDistance: 0.5
 --- !u!114 &5481650477780005778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,20 +261,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _health: 0
---- !u!114 &3078546087095979714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848767210448556779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f0a96a9b1111149ab6f96810acc853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerMovement: {fileID: 7403170672981175694}
-  _jumpVelocity: 7
 --- !u!114 &6028878718135016432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +318,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _interactionDistance: 2
+--- !u!114 &8878957907372451854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848767210448556779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f0a96a9b1111149ab6f96810acc853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 7403170672981175694}
+  _jumpVelocity: 5
 --- !u!114 &6048681076158000649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +366,49 @@ MonoBehaviour:
   startSize: 2
   _objectPool: []
   _usedPool: []
+--- !u!114 &833486391366921859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848767210448556779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: c061d77a74a9be24a8188676815a3540,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9578f6f4-512f-4998-b6d9-a7bb38dbc556
+    m_ActionName: PlayerActions/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5b595f8d-670f-47f8-9513-1737c10005bc
+    m_ActionName: PlayerActions/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d64eef1f-0d7e-4192-949e-de1b8fad7f1a
+    m_ActionName: PlayerActions/Rotate[/Keyboard/leftArrow,/Keyboard/rightArrow,/DualSenseGamepadHID/rightStick/left,/DualSenseGamepadHID/rightStick/right]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerActions
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2657142416306108068
 GameObject:
   m_ObjectHideFlags: 0

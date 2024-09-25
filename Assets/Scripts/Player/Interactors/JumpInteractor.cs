@@ -6,7 +6,7 @@ using UnityEngine;
 public class JumpInteractor : Interactor
 {
     [SerializeField] private PlayerMovement _playerMovement;
-    [SerializeField] private float _jumpVelocity = 7.0f;
+    [SerializeField] private float _jumpVelocity = 5.0f;
 
     public override void Interact()
     {

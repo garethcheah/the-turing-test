@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController _characterController;
     private Vector3 _playerVelocity;
+    private Vector2 _moveInput;
     private float _speedMultiplier = 1.0f;
 
     public bool IsGrounded { get; private set; }
@@ -49,8 +51,9 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         _speedMultiplier = PlayerInput.instance.SprintHeld ? _sprintMultiplier : 1.0f;
+        _moveInput = PlayerInput.instance.MoveInput;
 
-        _characterController.Move((transform.forward * PlayerInput.instance.Vertical + transform.right * PlayerInput.instance.Horizontal) * _playerSpeed * Time.deltaTime * _speedMultiplier);
+        _characterController.Move((transform.forward * _moveInput.y + transform.right * _moveInput.x) * _playerSpeed * Time.deltaTime * _speedMultiplier);
 
         // Ground check
         if (IsGrounded && _playerVelocity.y < 0)
@@ -65,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     private void RotatePlayer()
     {
         // Turn player
-        transform.Rotate(Vector3.up * _turnSpeed * Time.deltaTime * PlayerInput.instance.MouseX);
+        transform.Rotate(Vector3.up * _turnSpeed * PlayerInput.instance.RotateInput * Time.deltaTime);
     }
 
     private void GroundCheck()

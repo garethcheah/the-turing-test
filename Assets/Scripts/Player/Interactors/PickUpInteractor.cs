@@ -32,7 +32,7 @@ public class PickUpInteractor : Interactor
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && _isPicked && _pickable != null)
+        if (PlayerInput.instance.InteractPressed && _isPicked && _pickable != null)
         {
             _pickable.OnDropped();
             _isPicked = false;

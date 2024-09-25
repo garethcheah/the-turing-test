@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour
     private void RotateCamera()
     {
         // Camera up and down
-        _cameraRotationX += Time.deltaTime * PlayerInput.instance.MouseY * _moveSpeed * (_invertMouse ? 1 : -1);
+        _cameraRotationX += Time.deltaTime * PlayerInput.instance.LookInput * _moveSpeed * (_invertMouse ? 1 : -1);
         _cameraRotationX = Mathf.Clamp(_cameraRotationX, -85.0f, 85.0f);
 
         transform.localRotation = Quaternion.Euler(_cameraRotationX, 0, 0);
