@@ -16,6 +16,11 @@ public class TurretController : MonoBehaviour
         return _target != null && Vector3.Distance(_target.position, transform.position) <= _attackRange;
     }
 
+    public void DisableTurret()
+    {
+        ChangeState(new TurretDisabledState(this, _laser));
+    }
+
     public void ChangeState(TurretState state)
     {
         _currentState.OnStateExit();

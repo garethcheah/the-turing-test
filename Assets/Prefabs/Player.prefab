@@ -279,7 +279,6 @@ MonoBehaviour:
   bulletPool: {fileID: 6048681076158000649}
   rocketPool: {fileID: 278117170334465864}
   _cameraTransform: {fileID: 1751546598990567372}
-  _inputType: 0
   _bulletSpawnPoint: {fileID: 7937915256213423482}
   _bulletShootForce: 30
   _rocketShootForce: 60
@@ -331,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: 7403170672981175694}
-  _jumpVelocity: 5
+  _jumpVelocity: 6
 --- !u!114 &6048681076158000649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +403,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d64eef1f-0d7e-4192-949e-de1b8fad7f1a
     m_ActionName: PlayerActions/Rotate[/Keyboard/leftArrow,/Keyboard/rightArrow,/DualSenseGamepadHID/rightStick/left,/DualSenseGamepadHID/rightStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 650fc1d7-5cbb-42ed-a00f-f797653becc9
+    m_ActionName: PlayerActions/Look[/Keyboard/downArrow,/Keyboard/upArrow,/Mouse/delta/down,/Mouse/delta/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 28f9632b-1b39-4878-a75c-48aab70f9aab
+    m_ActionName: PlayerActions/Shoot[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9306af8a-2e36-4122-8855-54c34e04c93a
+    m_ActionName: PlayerActions/Sprint[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1dd296e8-f3c5-4f67-8ef3-11c0c8ced9fb
+    m_ActionName: PlayerActions/Interact[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 89f9e965-96ea-45b1-b73f-e1c053d48aac
+    m_ActionName: PlayerActions/ChangeWeapon[/Keyboard/ctrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActions

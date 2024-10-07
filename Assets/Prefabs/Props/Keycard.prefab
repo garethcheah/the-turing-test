@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.189
+      value: -23.842
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.32
+      value: 4.4047
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.55
+      value: 27.334
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.94771415
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.31912056
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
@@ -51,13 +51,19 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 37.219
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6b840ff3f97f8471d828d53f3a8c185e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8896051167825165466, guid: 6b840ff3f97f8471d828d53f3a8c185e,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: 6b840ff3f97f8471d828d53f3a8c185e,
         type: 3}
       propertyPath: m_Name
@@ -117,4 +123,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnKeyCardAcquired:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DoubleDoor, Assembly-CSharp
+        m_MethodName: UnlockDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ButtonPad, Assembly-CSharp
+        m_MethodName: UpdateButtonPadMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: UNLOCKED
+          m_BoolArgument: 0
+        m_CallState: 2
