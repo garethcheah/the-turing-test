@@ -19,7 +19,7 @@ public class PressurePad : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Pressure Cube"))
+        if (collision.gameObject.tag == gameObject.tag)
         {
             numberOfCubesOnPad++;
 
@@ -32,7 +32,7 @@ public class PressurePad : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Pressure Cube"))
+        if (collision.gameObject.tag == gameObject.tag)
         {
             numberOfCubesOnPad--;
 

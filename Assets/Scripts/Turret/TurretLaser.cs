@@ -5,11 +5,12 @@ using UnityEngine.Events;
 
 public class TurretLaser : MonoBehaviour
 {
+    public UnityEvent OnTargetHit;
+
     [SerializeField] private Transform _laserOriginPoint;
     [SerializeField] private float _maxDistance = 20.0f;
-    [SerializeField] private float _laserDamage = 10.0f;
     [SerializeField] private Material _disabledColor;
-    [SerializeField] private PlayerHealth _playerHealth;
+    [SerializeField] private string _targetTag;
 
     private MeshRenderer _renderer;
     private LineRenderer _laser;
@@ -57,10 +58,9 @@ public class TurretLaser : MonoBehaviour
                 _laser.SetPosition(0, _laserOriginPoint.position);
                 _laser.SetPosition(1, _rayCastHit.point);
 
-                if (_rayCastHit.collider.CompareTag("Player"))
+                if (_rayCastHit.collider.CompareTag(_targetTag))
                 {
-                    // Deal damage to player
-                    _playerHealth.DeductHealth(_laserDamage * Time.deltaTime);
+                    OnTargetHit?.Invoke();
                 }
             }
             else

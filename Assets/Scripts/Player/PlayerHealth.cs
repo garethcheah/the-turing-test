@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (IsDead) return;
 
-        _health -= value;
+        _health -= value * Time.deltaTime;
 
         if (_health <= 0)
         {

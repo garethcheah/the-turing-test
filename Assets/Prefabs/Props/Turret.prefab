@@ -320,11 +320,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d9cda2ff22c9a4e85af2af550099bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetHit:
+    m_PersistentCalls:
+      m_Calls: []
   _laserOriginPoint: {fileID: 512755849607994995}
   _maxDistance: 20
-  _laserDamage: 10
   _disabledColor: {fileID: 2100000, guid: bd70145708a27471bbf6560b41ba5003, type: 2}
-  _playerHealth: {fileID: 0}
+  _targetTag: Player
 --- !u!1001 &1739153499331972046
 PrefabInstance:
   m_ObjectHideFlags: 0

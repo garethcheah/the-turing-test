@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7488835899143816019}
   m_Layer: 0
   m_Name: PressurePad
-  m_TagString: Untagged
+  m_TagString: pressure-orange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
