@@ -5,10 +5,7 @@ using UnityEngine;
 public class DoubleDoor : MonoBehaviour
 {
     [SerializeField] private Animator _doubleDoorAnimator;
-    [SerializeField] private float _waitTime = 1.0f;
     [SerializeField] private bool _isLocked = true;
-
-    private float _timer = 0.0f;
 
     public void LockDoor()
     {
@@ -24,29 +21,7 @@ public class DoubleDoor : MonoBehaviour
     {
         if (!_isLocked)
         {
-            _doubleDoorAnimator.SetBool("Door", state);
+            _doubleDoorAnimator.SetBool("IsDoorOpening", state);
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (_isLocked)
-            return;
-
-        if (!other.CompareTag("Player"))
-            return;
-
-        _timer += Time.deltaTime;
-
-        if (_timer >= _waitTime)
-        {
-            _timer = _waitTime;
-            OpenDoor(true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        OpenDoor(false);
     }
 }

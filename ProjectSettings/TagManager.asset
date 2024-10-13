@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Projectile
+  - Pressure Cube
   layers:
   - Default
   - TransparentFX

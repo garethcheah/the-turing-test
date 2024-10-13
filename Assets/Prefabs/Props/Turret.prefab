@@ -160,7 +160,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5cf50b24110d77e42955e604cd8fe802, type: 2}
-  - {fileID: 2100000, guid: 9724262729d4e614bb755435e4a38be9, type: 2}
+  - {fileID: 2100000, guid: 5ccffb21468d24558bab0ed5090e7160, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -323,6 +323,7 @@ MonoBehaviour:
   _laserOriginPoint: {fileID: 512755849607994995}
   _maxDistance: 20
   _laserDamage: 10
+  _disabledColor: {fileID: 2100000, guid: bd70145708a27471bbf6560b41ba5003, type: 2}
   _playerHealth: {fileID: 0}
 --- !u!1001 &1739153499331972046
 PrefabInstance:

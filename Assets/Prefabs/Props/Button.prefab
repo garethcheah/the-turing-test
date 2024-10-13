@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8836720039487193862}
   - component: {fileID: 3112235735370615725}
   - component: {fileID: 2785159920739349844}
+  - component: {fileID: 3705741953147451967}
   - component: {fileID: 6369830775520467747}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5cf50b24110d77e42955e604cd8fe802, type: 2}
-  - {fileID: 2100000, guid: 9724262729d4e614bb755435e4a38be9, type: 2}
+  - {fileID: 2100000, guid: bd70145708a27471bbf6560b41ba5003, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,6 +86,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3705741953147451967
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5301120609199573562}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5447036705194824928, guid: f058a3803a08ab2449e4678b5f50f4aa, type: 3}
 --- !u!114 &6369830775520467747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DoubleDoor, Assembly-CSharp
-        m_MethodName: OpenDoor
+        m_MethodName: 
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -112,8 +135,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  _platformAnimator: {fileID: 0}
-  _hoverColor: {fileID: 2100000, guid: 3594cafb4a09f4f069de353b9942ed05, type: 2}
+  _hoverColor: {fileID: -5354028657143720620, guid: 6b840ff3f97f8471d828d53f3a8c185e,
+    type: 3}
+  _enabledColor: {fileID: 2100000, guid: 5ccffb21468d24558bab0ed5090e7160, type: 2}
 --- !u!1 &7228628399918692633
 GameObject:
   m_ObjectHideFlags: 0

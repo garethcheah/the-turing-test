@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ffc89bf7162f84c909877c2c7be698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doubleDoorAnimator: {fileID: 0}
+  _doubleDoorAnimator: {fileID: 5295365241201619088}
   _waitTime: 1
   _isLocked: 1
 --- !u!1001 &5295365240418219579

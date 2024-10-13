@@ -9,8 +9,10 @@ public class PushButton : MonoBehaviour, ISelectable
     public UnityEvent OnPush;
 
     [SerializeField] private Material _hoverColor;
+    [SerializeField] private Material _enabledColor;
 
     private Material _defaultColor;
+    private Material _disabledColor;
     private MeshRenderer _renderer;
 
     public void OnHoverEnter()
@@ -23,6 +25,20 @@ public class PushButton : MonoBehaviour, ISelectable
         _renderer.material = _defaultColor;
     }
 
+    public void DisplayDisabledColor()
+    {
+        Material[] materials = _renderer.materials;
+        materials[1] = _disabledColor;
+        _renderer.materials = materials;
+    }
+
+    public void DisplayEnabledColor()
+    {
+        Material[] materials = _renderer.materials;
+        materials[1] = _enabledColor;
+        _renderer.materials = materials;
+    }
+
     public void OnSelect()
     {
         OnPush?.Invoke();
@@ -32,5 +48,6 @@ public class PushButton : MonoBehaviour, ISelectable
     {
         _renderer = GetComponent<MeshRenderer>();
         _defaultColor = _renderer.material;
+        _disabledColor = _renderer.materials[1];
     }
 }

@@ -14,6 +14,7 @@ public class TurretDisabledState : TurretState
     public override void OnStateEnter()
     {
         _laser.DeactivateLaser();
+        _laser.DisplayDisabledColor();
     }
 
     public override void OnStateExit()

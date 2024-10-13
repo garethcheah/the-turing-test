@@ -8,8 +8,10 @@ public class TurretLaser : MonoBehaviour
     [SerializeField] private Transform _laserOriginPoint;
     [SerializeField] private float _maxDistance = 20.0f;
     [SerializeField] private float _laserDamage = 10.0f;
+    [SerializeField] private Material _disabledColor;
     [SerializeField] private PlayerHealth _playerHealth;
 
+    private MeshRenderer _renderer;
     private LineRenderer _laser;
     private RaycastHit _rayCastHit;
     private Ray _ray;
@@ -25,9 +27,17 @@ public class TurretLaser : MonoBehaviour
         _enabled = false;
     }
 
+    public void DisplayDisabledColor()
+    {
+        Material[] materials = _renderer.materials;
+        materials[1] = _disabledColor;
+        _renderer.materials = materials;
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
+        _renderer = GetComponent<MeshRenderer>();
         _laser = GetComponent<LineRenderer>();
         _enabled = false;
         _laser.enabled = _enabled;
