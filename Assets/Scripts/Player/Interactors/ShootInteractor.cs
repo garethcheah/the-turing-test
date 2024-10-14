@@ -10,8 +10,8 @@ public class ShootInteractor : Interactor
     public Color rocketGunColor;
 
     [Header("Shoot")]
-    [SerializeField] public ObjectPool bulletPool;
-    [SerializeField] public ObjectPool rocketPool;
+    public ObjectPool bulletPool;
+    public ObjectPool rocketPool; 
 
 
     [SerializeField] private Transform _cameraTransform;
@@ -22,6 +22,7 @@ public class ShootInteractor : Interactor
     private float _finalShootVelocity;
     private WeaponType _weaponType;
     private IShootStrategy _currentShootStrategy;
+    private bool _isWeaponsEnabled = true;
 
     public enum WeaponType
     {
@@ -51,7 +52,7 @@ public class ShootInteractor : Interactor
             }
         }
 
-        if (PlayerInput.instance.ShootPressed)
+        if (PlayerInput.instance.ShootPressed && _isWeaponsEnabled)
         {
             _currentShootStrategy.Shoot();
         }
@@ -60,5 +61,15 @@ public class ShootInteractor : Interactor
     public Transform GetShootPoint()
     {
         return _bulletSpawnPoint;
+    }
+
+    public void EnableWeapons()
+    {
+        _isWeaponsEnabled = true;
+    }
+
+    public void DisableWeapons()
+    {
+        _isWeaponsEnabled = false;
     }
 }

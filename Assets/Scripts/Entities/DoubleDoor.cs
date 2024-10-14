@@ -6,6 +6,7 @@ public class DoubleDoor : MonoBehaviour
 {
     [SerializeField] private Animator _doubleDoorAnimator;
     [SerializeField] private bool _isLocked = true;
+    [SerializeField] private bool _keepOpen = false;
 
     public void LockDoor()
     {
@@ -22,6 +23,14 @@ public class DoubleDoor : MonoBehaviour
         if (!_isLocked)
         {
             _doubleDoorAnimator.SetBool("IsDoorOpening", state);
+        }
+    }
+
+    private void Start()
+    {
+        if (_keepOpen)
+        {
+            OpenDoor(true);
         }
     }
 }
