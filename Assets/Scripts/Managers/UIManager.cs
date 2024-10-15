@@ -9,9 +9,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _textHealthValue;
     [SerializeField] private GameObject _textGameOver;
     [SerializeField] private GameObject _textGameEnd;
+    [SerializeField] private GameObject _crosshair;
 
     public void OnGameEnd()
     {
+        _crosshair.SetActive(false);
         _textGameEnd.SetActive(true);
     }
 
@@ -19,6 +21,7 @@ public class UIManager : MonoBehaviour
     {
         _textGameOver.SetActive(false);
         _textGameEnd.SetActive(false);
+        _crosshair.SetActive(true);
     }
 
     private void OnEnable()
@@ -41,6 +44,7 @@ public class UIManager : MonoBehaviour
 
     private void OnDeath()
     {
+        _crosshair.SetActive(false);
         _textGameOver.SetActive(true);
     }
 }
