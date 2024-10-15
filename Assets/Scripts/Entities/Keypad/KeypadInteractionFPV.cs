@@ -9,9 +9,9 @@ public class KeypadInteractionFPV : MonoBehaviour
     private void Awake() => cam = Camera.main;
     private void Update()
     {
-        var ray = cam.ScreenPointToRay(Input.mousePosition);
+        var ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
-        if (Input.GetMouseButtonDown(0))
+        if (PlayerInput.instance.InteractPressed)
         {
             if (Physics.Raycast(ray, out var hit))
             {
