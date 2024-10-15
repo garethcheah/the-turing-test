@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour // Singleton
 {
     public static GameManager instance;
+    public UnityEvent OnGameEnd;
+    public UnityEvent OnGameOver;
 
     private GameState _currentState;
     private bool _isInputActive = true;
@@ -58,13 +61,13 @@ public class GameManager : MonoBehaviour // Singleton
         _isInputActive = true;
     }
 
-    private void GameOver()
-    {
-
-    }
-
     private void EndGame()
     {
+        OnGameEnd?.Invoke();
+    }
 
+    private void GameOver()
+    {
+        OnGameOver?.Invoke();
     }
 }

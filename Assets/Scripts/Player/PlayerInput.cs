@@ -97,6 +97,16 @@ public class PlayerInput : MonoBehaviour // Singleton
 
     public bool CommandPressed { get; private set; }
 
+    public void EnablePlayerActions()
+    {
+        _actions.FindActionMap("PlayerActions").Enable();
+    }
+
+    public void DisablePlayerActions()
+    {
+        _actions.FindActionMap("PlayerActions").Disable();
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -112,15 +122,5 @@ public class PlayerInput : MonoBehaviour // Singleton
         _sprintAction = _actions.FindActionMap("PlayerActions").FindAction("Sprint");
         _interactAction = _actions.FindActionMap("PlayerActions").FindAction("Interact");
         _changeWeaponAction = _actions.FindActionMap("PlayerActions").FindAction("ChangeWeapon");
-    }
-
-    private void OnEnable()
-    {
-        _actions.FindActionMap("PlayerActions").Enable();
-    }
-
-    private void OnDisable()
-    {
-        _actions.FindActionMap("PlayerActions").Disable();
     }
 }

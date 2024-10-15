@@ -8,10 +8,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private TMP_Text _textHealthValue;
     [SerializeField] private GameObject _textGameOver;
+    [SerializeField] private GameObject _textGameEnd;
+
+    public void OnGameEnd()
+    {
+        _textGameEnd.SetActive(true);
+    }
 
     private void Start()
     {
         _textGameOver.SetActive(false);
+        _textGameEnd.SetActive(false);
     }
 
     private void OnEnable()

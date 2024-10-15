@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
             IsDead = true;
             OnDeath();
             _health = 0;
+            GameManager.instance.ChangeState(GameManager.GameState.GameOver);
         }
 
         if (OnHealthUpdate != null)
