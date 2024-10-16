@@ -6,6 +6,7 @@ public class TurretController : MonoBehaviour
 {
     [SerializeField] private TurretMovement _turretMovement;
     [SerializeField] private TurretLaser _laser;
+    [SerializeField] private AudioClip _clipTurretDisabled;
     [SerializeField] private float _attackRange = 10.0f;
 
     private Transform _target;
@@ -18,7 +19,7 @@ public class TurretController : MonoBehaviour
 
     public void DisableTurret()
     {
-        ChangeState(new TurretDisabledState(this, _laser));
+        ChangeState(new TurretDisabledState(this, _laser, _clipTurretDisabled));
     }
 
     public void ChangeState(TurretState state)

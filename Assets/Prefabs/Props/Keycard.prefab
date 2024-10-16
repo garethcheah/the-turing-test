@@ -148,3 +148,5 @@ MonoBehaviour:
           m_StringArgument: UNLOCKED
           m_BoolArgument: 0
         m_CallState: 2
+  _clipKeyCardAcquired: {fileID: 8300000, guid: c14a4a7cae838e24a82336dbb48393ac,
+    type: 3}

@@ -144,6 +144,11 @@ PrefabInstance:
       propertyPath: _unlockedColor
       value: 
       objectReference: {fileID: 2100000, guid: 5ccffb21468d24558bab0ed5090e7160, type: 2}
+    - target: {fileID: 6369830775520467747, guid: 8eead6da0f39af14da40d5f2642e430b,
+        type: 3}
+      propertyPath: _clipButtonPressed
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f9403ad262715f4994f66bc8d445f42, type: 3}
     - target: {fileID: 7228628399918692633, guid: 8eead6da0f39af14da40d5f2642e430b,
         type: 3}
       propertyPath: m_Name

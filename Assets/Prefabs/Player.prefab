@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  _clipPlayerHurt: {fileID: 8300000, guid: 89d1f80f8e6027f429fa5bc80ad739a9, type: 3}
   _health: 0
 --- !u!114 &6028878718135016432
 MonoBehaviour:
@@ -433,6 +434,8 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 7937915256213423482}
   _bulletShootForce: 30
   _rocketShootForce: 60
+  _clipBulletFired: {fileID: 8300000, guid: f402b1c66b2bac64b9afbe1db15ea830, type: 3}
+  _clipRocketFired: {fileID: 8300000, guid: 74e3bd7fb4ca4874f9ec1af8347cb904, type: 3}
 --- !u!114 &-27041637490836851
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PushButton : MonoBehaviour, ISelectable
 
     [SerializeField] private Material _hoverColor;
     [SerializeField] private Material _enabledColor;
+    [SerializeField] private AudioClip _clipButtonPressed;
 
     private Material _defaultColor;
     private Material _disabledColor;
@@ -41,6 +42,7 @@ public class PushButton : MonoBehaviour, ISelectable
 
     public void OnSelect()
     {
+        SoundFXManager.instance.PlaySoundFXClip(_clipButtonPressed, transform, 1.0f);
         OnPush?.Invoke();
     }
 

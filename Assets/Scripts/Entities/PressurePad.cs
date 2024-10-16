@@ -8,13 +8,14 @@ public class PressurePad : MonoBehaviour
     public UnityEvent OnActivate;
     public UnityEvent OnDeactivate;
 
-    [SerializeField] private int numberOfCubesToActivate = 2;
+    [SerializeField] private AudioClip _clipPadActivated;
+    [SerializeField] private int _numberOfCubesToActivate = 2;
 
     private int numberOfCubesOnPad;
 
     public bool IsActivated()
     {
-        return numberOfCubesOnPad >= numberOfCubesToActivate;
+        return numberOfCubesOnPad >= _numberOfCubesToActivate;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -23,9 +24,10 @@ public class PressurePad : MonoBehaviour
         {
             numberOfCubesOnPad++;
 
-            if (numberOfCubesOnPad >= numberOfCubesToActivate)
+            if (numberOfCubesOnPad >= _numberOfCubesToActivate)
             {
                 OnActivate?.Invoke();
+                SoundFXManager.instance.PlaySoundFXClip(_clipPadActivated, transform, 1.0f);
             }
         }
     }
@@ -36,7 +38,7 @@ public class PressurePad : MonoBehaviour
         {
             numberOfCubesOnPad--;
 
-            if (numberOfCubesOnPad < numberOfCubesToActivate)
+            if (numberOfCubesOnPad < _numberOfCubesToActivate)
             {
                 OnDeactivate?.Invoke();
             }

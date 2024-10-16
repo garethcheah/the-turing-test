@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFalsePlatform: 0
+  _clipPlatformOpening: {fileID: 8300000, guid: 5b8adca091d4afe4fab181e83fe5eff4,
+    type: 3}
 --- !u!65 &3588319400939960840
 BoxCollider:
   m_ObjectHideFlags: 0

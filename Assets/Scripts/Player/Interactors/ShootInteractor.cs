@@ -18,6 +18,8 @@ public class ShootInteractor : Interactor
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private float _bulletShootForce = 20.0f;
     [SerializeField] private float _rocketShootForce = 40.0f;
+    [SerializeField] private AudioClip _clipBulletFired;
+    [SerializeField] private AudioClip _clipRocketFired;
 
     private float _finalShootVelocity;
     private WeaponType _weaponType;
@@ -32,9 +34,10 @@ public class ShootInteractor : Interactor
 
     public override void Interact()
     {
+
         if (_currentShootStrategy == null)
         {
-            _currentShootStrategy = new BulletShootStrategy(this, _bulletSpawnPoint, _bulletShootForce, _cameraTransform);
+            _currentShootStrategy = new BulletShootStrategy(this, _bulletSpawnPoint, _bulletShootForce, _cameraTransform, _clipBulletFired);
             _weaponType = WeaponType.Primary;
         }
 
@@ -42,12 +45,12 @@ public class ShootInteractor : Interactor
         {
             if (_weaponType == WeaponType.Primary)
             {
-                _currentShootStrategy = new RocketShootStrategy(this, _bulletSpawnPoint, _rocketShootForce, _cameraTransform);
+                _currentShootStrategy = new RocketShootStrategy(this, _bulletSpawnPoint, _rocketShootForce, _cameraTransform, _clipRocketFired);
                 _weaponType = WeaponType.Secondary;
             }
             else
             {
-                _currentShootStrategy = new BulletShootStrategy(this, _bulletSpawnPoint, _bulletShootForce, _cameraTransform);
+                _currentShootStrategy = new BulletShootStrategy(this, _bulletSpawnPoint, _bulletShootForce, _cameraTransform, _clipBulletFired);
                 _weaponType = WeaponType.Primary;
             }
         }

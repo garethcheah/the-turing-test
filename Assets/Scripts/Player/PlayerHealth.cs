@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 100.0f;
+    [SerializeField] private AudioClip _clipPlayerHurt;
 
     public float _health;
 
@@ -20,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
         if (IsDead) return;
 
         _health -= value * Time.deltaTime;
+        SoundFXManager.instance.PlaySoundFXClip(_clipPlayerHurt, transform, 0.2f);
 
         if (_health <= 0)
         {

@@ -25,7 +25,7 @@ public class TurretLaser : MonoBehaviour
 
     public void DeactivateLaser()
     {
-        _enabled = false;
+        _enabled = false; 
     }
 
     public void DisplayDisabledColor()

@@ -138,6 +138,7 @@ MonoBehaviour:
   _hoverColor: {fileID: -5354028657143720620, guid: 6b840ff3f97f8471d828d53f3a8c185e,
     type: 3}
   _enabledColor: {fileID: 2100000, guid: 5ccffb21468d24558bab0ed5090e7160, type: 2}
+  _clipButtonPressed: {fileID: 8300000, guid: 7f9403ad262715f4994f66bc8d445f42, type: 3}
 --- !u!1 &7228628399918692633
 GameObject:
   m_ObjectHideFlags: 0

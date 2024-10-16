@@ -157,4 +157,5 @@ MonoBehaviour:
   OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  numberOfCubesToActivate: 2
+  _clipPadActivated: {fileID: 8300000, guid: 017dfb81064461147b94f666a68585c6, type: 3}
+  _numberOfCubesToActivate: 2

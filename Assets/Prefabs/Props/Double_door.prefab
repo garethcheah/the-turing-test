@@ -69,8 +69,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doubleDoorAnimator: {fileID: 5295365241201619088}
-  _waitTime: 1
   _isLocked: 1
+  _keepOpen: 0
+  _clipDoorOpening: {fileID: 8300000, guid: c6f81fbfcdee1674e83f5c1ffd552c35, type: 3}
 --- !u!1001 &5295365240418219579
 PrefabInstance:
   m_ObjectHideFlags: 0

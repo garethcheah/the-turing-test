@@ -310,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _liftAnimator: {fileID: 9035844716498767357}
+  _clipLiftActivated: {fileID: 8300000, guid: 042cc2d92f512fd42a08b9fdd54940ba, type: 3}
 --- !u!1001 &6002634840931189791
 PrefabInstance:
   m_ObjectHideFlags: 0

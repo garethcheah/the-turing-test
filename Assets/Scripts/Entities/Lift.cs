@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lift : MonoBehaviour
 {
     [SerializeField] private Animator _liftAnimator;
+    [SerializeField] private AudioClip _clipLiftActivated;
 
     private bool _isEnabled = false;
     private bool _isLiftGrounded = true;
@@ -24,6 +25,7 @@ public class Lift : MonoBehaviour
         if (_isEnabled)
         {
             _liftAnimator.SetBool("IsLiftGoingUp", _isLiftGrounded);
+            SoundFXManager.instance.PlaySoundFXClip(_clipLiftActivated, transform, 1.0f);
             _isLiftGrounded = !_isLiftGrounded;
         }
     }

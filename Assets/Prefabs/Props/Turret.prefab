@@ -79,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _turretMovement: {fileID: 5031863079560336706}
   _laser: {fileID: 524048543366160714}
+  _clipTurretDisabled: {fileID: 8300000, guid: cd0767488acfa53439a9e8b2cf666aa5, type: 3}
   _attackRange: 20
 --- !u!114 &5031863079560336706
 MonoBehaviour:

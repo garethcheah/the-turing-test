@@ -7,14 +7,16 @@ public class BulletShootStrategy : IShootStrategy
     private ShootInteractor _shootInteractor;
     private Transform _shootPoint;
     private Transform _cameraTransform;
+    private AudioClip _audioClip;
     private float _shootForce;
 
-    public BulletShootStrategy(ShootInteractor shootInteractor, Transform shootPoint, float shootForce, Transform cameraTransform)
+    public BulletShootStrategy(ShootInteractor shootInteractor, Transform shootPoint, float shootForce, Transform cameraTransform, AudioClip audioClip)
     {
         _shootInteractor = shootInteractor;
         _shootPoint = shootPoint;
         _shootForce = shootForce;
         _cameraTransform = cameraTransform;
+        _audioClip = audioClip;
 
         // Change Gun Color
         _shootInteractor.gunRenderer.material.color = _shootInteractor.bulletGunColor;
@@ -31,6 +33,8 @@ public class BulletShootStrategy : IShootStrategy
         bullet.transform.position = _shootPoint.position;
         bullet.transform.rotation = _shootPoint.rotation;
         bullet.velocity = _cameraTransform.forward * _shootForce;
+
+        SoundFXManager.instance.PlaySoundFXClip(_audioClip, _shootPoint, 1.0f);
 
         _shootInteractor.bulletPool.DestroyPooledObject(bulletFromPool, 5.0f);
     }
